@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "사운드 퀘스트",
+    "slug": "harmonitune",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "harmonitune",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.harmonitune.app"
+    },
+    "android": {
+      "package": "com.harmonitune.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#EAF1F9",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "plugins": [
+      "expo-router",
+      "expo-dev-client",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#F7F9FB",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 180
+        }
+      ],
+      "react-native-audio-api",
+      "expo-audio",
+      "expo-asset",
+      "expo-font",
+      "expo-screen-orientation",
+      "@react-native-google-signin/google-signin",
+      "expo-build-properties"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

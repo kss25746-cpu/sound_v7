@@ -1,0 +1,20 @@
+---
+description: 누적형 문서(impl-log·handoff)는 700줄을 넘으면 다음 번호로 이어 쓴다
+alwaysApply: true
+---
+
+# 문서 넘김 — 700줄
+
+누적형 `docs/impl-log_*.md` · `docs/handoff*.md` · `docs/app-review*.md`만 해당. 갱신형(`improvement-backlog.md` 등)은 넘기지 않는다.
+
+- 정본이 **700줄을 넘으면** 다음 번호를 **정본**으로 연다(`impl-log_4.md`, `handoff6.md`, `app-review_2.md` …).
+- **통째 복사·날짜별 사본 금지.** 옛 정본 본문은 그대로 두고 맨 위에 「과거·새 항목/블록 금지」만 박는다.
+- impl-log 새 정본에는 **기록 원칙·기록 형식**만 승계한다. 옛 항목을 복사하지 않는다.
+- 넘기면 같이 고친다: 새 정본·옛 정본 헤더 · `docs/README.md` · `.cursor/rules/android-dev-client.mdc` · 루트 `README.md`.
+- 전환 기록은 **새 impl-log 정본** 맨 위 항목 1개. 인계 저장만으로 impl-log 한 줄을 넣지 않는다.
+- `docs/handoff-YYYY-MM-DD.md`는 만들지 않는다(2026-08-07 폐지).
+
+```md
+<!-- ❌ BAD: 옛 파일 전체를 새 번호로 복사 -->
+<!-- ✅ GOOD: 새 파일은 원칙(+이번 항목)만. 옛 파일은 봉인 -->
+```

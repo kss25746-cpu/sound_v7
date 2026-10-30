@@ -1,0 +1,80 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+example
+
+# generated native folders
+/ios
+/android
+
+# 로컬 Expo 모듈 빌드 산출물
+/modules/*/android/build/
+
+# JetBrains / Android Studio
+.idea/
+
+# 악기 원본 음원 — scripts/fetch-inst-src.mjs가 받는다. 83MB라 커밋하지 않는다.
+/.inst-src
+
+/exp-chat
+
+# 다른 계정 저장소에 올리지 않는 문서·그림
+/docs/
+/ppt/
+/pictures/
+/pic-2/
+/doc-menu/
+/CLAUDE.md
+/newRules.md
+/terminal.md
+/1.md
+/261012.md
+/32보는용도.md
+/32수정사항.md
+/32쉽게풀이.md
+/다른음찾기4단계최종수정.md
+/로그인 서버.md
+/붙어 있는 Metro.md
+/새규칙진행1.md
+/소리.md
+/앱설명가이드.md
+/트랙흰건반높이.md
+/한두글자.md
+/한두글자1.md
+/Screenshot_20261026-134405_ .jpg
+/Screenshot_20261026-163125_ .jpg

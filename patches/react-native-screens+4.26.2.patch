@@ -1,0 +1,44 @@
+diff --git a/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/gamma/tabs/container/TabsContainer.kt b/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/gamma/tabs/container/TabsContainer.kt
+index 27e2254..266a999 100644
+--- a/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/gamma/tabs/container/TabsContainer.kt
++++ b/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/gamma/tabs/container/TabsContainer.kt
+@@ -327,6 +327,39 @@ class TabsContainer internal constructor(
+         colorSchemeCoordinator.onConfigurationChanged(newConfig)
+     }
+ 
++    override fun onLayout(
++        changed: Boolean,
++        left: Int,
++        top: Int,
++        right: Int,
++        bottom: Int,
++    ) {
++        super.onLayout(changed, left, top, right, bottom)
++        collapseHiddenBottomNavigationViewFrame()
++    }
++
++    /**
++     * FrameLayout skips GONE children during layout, so a hidden bottom navigation view keeps the frame it
++     * had while it was last visible. React Native's TouchTargetHelper walks children back-to-front and does
++     * NOT check visibility, so that stale frame would still be picked as the touch target for every touch
++     * over it -- the tab content underneath (which now extends into that area, since the interface inset
++     * dropped to 0) goes dead in exactly that strip. Collapse the hidden bar to an empty frame at the
++     * container's bottom edge so neither it nor its (equally stale) children can satisfy a hit test.
++     */
++    private fun collapseHiddenBottomNavigationViewFrame() {
++        if (bottomNavigationView.visibility != View.GONE) {
++            return
++        }
++        val edge = height
++        if (bottomNavigationView.left != 0 ||
++            bottomNavigationView.top != edge ||
++            bottomNavigationView.right != 0 ||
++            bottomNavigationView.bottom != edge
++        ) {
++            bottomNavigationView.layout(0, edge, 0, edge)
++        }
++    }
++
+     override fun dispatchApplyWindowInsets(insets: WindowInsets?): WindowInsets? {
+         // On Android versions prior to R, insets dispatch is broken.
+         // In order to mitigate this, we override dispatchApplyWindowInsets with

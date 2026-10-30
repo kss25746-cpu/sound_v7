@@ -1,0 +1,21 @@
+---
+description: 안드로이드 모바일 전용 앱 — iOS 전용 API·속성을 넣지 않는다
+alwaysApply: true
+---
+
+# 안드로이드 전용
+
+이 저장소는 **안드로이드 모바일 앱**이다. iOS 전제·분기·속성을 추가하지 않는다.
+
+- `Platform.OS === 'ios'` / `Platform.select({ ios: ... })` 를 넣지 말 것
+- 그림자는 `elevation`만 쓴다. `shadowColor` / `shadowOffset` / `shadowOpacity` / `shadowRadius` 를 넣지 말 것
+- `Info.plist`, Xcode, CocoaPods, iOS 권한 문구를 권하지 말 것
+- Safe Area는 안드로이드 인셋(`useSafeAreaInsets`)으로만 맞춘다
+
+```tsx
+// ❌ BAD
+style={{ shadowColor: '#000', shadowOpacity: 0.3 }}
+
+// ✅ GOOD
+style={{ elevation: 8 }}
+```

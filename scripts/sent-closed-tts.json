@@ -1,0 +1,11 @@
+[
+  { "file": "man-phone.wav", "text": "아버지가 전화 받아요" },
+  { "file": "man-medicine.wav", "text": "아버지가 약 먹어요" },
+  { "file": "man-umb.wav", "text": "아버지가 우산 써요" },
+  { "file": "woman-phone.wav", "text": "어머니가 전화 받아요" },
+  { "file": "woman-medicine.wav", "text": "어머니가 약 먹어요" },
+  { "file": "woman-umb.wav", "text": "어머니가 우산 써요" },
+  { "file": "post-phone.wav", "text": "집배원이 전화 받아요" },
+  { "file": "post-medicine.wav", "text": "집배원이 약 먹어요" },
+  { "file": "post-umb.wav", "text": "집배원이 우산 써요" }
+]

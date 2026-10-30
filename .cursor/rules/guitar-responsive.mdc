@@ -1,0 +1,23 @@
+---
+description: 기타 탭 네온 프렛라인 — clamp 반응형을 고정 dp로 되돌리지 않는다
+globs: src/chongyeon/screens/GuitarScreen.tsx,src/chongyeon/constants/guitarLayout.ts,src/chongyeon/constants/guitarTheme.ts
+alwaysApply: false
+---
+
+# 기타 탭 반응형
+
+기준 화면은 **780×360**이다. 그 숫자는 토큰 원본이지, 유일한 기기 크기가 아니다.
+짧은 폰·폴드 커버·태블릿·폴드 펼침을 `getGuitarFit(usableWidth, usableHeight)` 가 맞춘다.
+
+- `getGuitarFit` / `clamp` 를 지우거나, `GuitarScreen` 스타일에 `bar.height`·`fret.cellHeight` 같은 **토큰 고정값만** 다시 박지 말 것
+- 하단바는 `bar.maxHeight`(72)를 넘기지 말 것
+- 치수는 `useInstrumentMetrics()`의 usable 폭·높이에서 계산한다
+- 사용자가 명시하지 않으면 반응형을 고정 레이아웃으로 「단순화」하지 말 것
+
+```tsx
+// ❌ BAD
+controlBar: { height: bar.height }
+
+// ✅ GOOD
+<View style={[styles.controlBar, { height: fit.barHeight }]} />
+```
